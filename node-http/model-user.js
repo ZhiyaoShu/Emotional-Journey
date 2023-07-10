@@ -1,8 +1,10 @@
-const MongoClient = require("mongodb");
+const { MongoClient } = require("mongodb");
+const mongoose = require("mongoose");
 const client = new MongoClient("mongodb://0.0.0.0:27017/nodemongo");
 
-client.connect(),
-  then(() => {
+client
+  .connect()
+  .then(() => {
     const userSchema = new Mongodb.Schema({
       username: {
         type: String,
@@ -26,4 +28,7 @@ client.connect(),
       Post,
       User,
     };
-  }).catch((err) => console.log("MongoDB connection error: ", err));
+
+    console.log("MongoDB connected");
+  })
+  .catch((err) => console.log("MongoDB connection error: ", err));

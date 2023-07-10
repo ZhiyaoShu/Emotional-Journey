@@ -1,7 +1,8 @@
 const express = require("express");
 // const session = require("express-session");
 // const cookieParser = require("cookie-parser");
-const MongoClient = require("mongodb");
+const { MongoClient } = require("mongodb");
+const mongoose = require("mongoose");
 
 const authRoutes = require("./routers/authRouter");
 const { Post, User } = require("./model-user");

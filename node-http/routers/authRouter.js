@@ -1,23 +1,24 @@
 const express = require("express");
 const router = express.Router();
-const { User } = require("../models");
+const { User } = require("../model-user");
 
 router.post("/signup", async (req, res) => {
   const { username, password, email } = req.body;
+
+  try {
+    const user = new User({ username, password, email });
+
+    //save the user to the database
+    await user.save();
+
+    //redirect the user to the login page
+    res.redirect("/login");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error signing up");
+  }
 });
 
-try {
-  const user = new User({ username, password, email });
-
-  //save the user to the database
-  await user.save();
-
-  //redirect the user to the login page
-  res.redirect("/login");
-} catch (error) {
-  console.error(error);
-  res.status(500).send("Error signing up");
-}
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
   try {
