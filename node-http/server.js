@@ -3,8 +3,8 @@ const express = require("express");
 // const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 
-const authRoutes = require("./routers/authRouter");
-const { Post, User } = require("./model-user");
+const authRoutes = require("./src/authRouter");
+const { Post, User } = require("./src/model-user");
 const app = express();
 app.use(express.static("public"));
 app.use(express.json());

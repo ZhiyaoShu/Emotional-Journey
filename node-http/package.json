@@ -22,7 +22,8 @@
     "mongodb": "^5.7.0",
     "mongoose": "^7.3.2",
     "node": "^20.4.0",
-    "sass": "^1.63.6"
+    "sass": "^1.63.6",
+    "vue": "^3.3.4"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
