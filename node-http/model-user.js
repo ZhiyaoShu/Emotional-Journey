@@ -1,34 +1,38 @@
-const { MongoClient } = require("mongodb");
 const mongoose = require("mongoose");
-const client = new MongoClient("mongodb://0.0.0.0:27017/nodemongo");
+mongoose.connect("mongodb://0.0.0.0:27017/nodemongo", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
-client
-  .connect()
-  .then(() => {
-    const userSchema = new Mongodb.Schema({
-      username: {
-        type: String,
-        required: true,
-        unique: true,
-      },
-      password: {
-        type: String,
-        required: true,
-      },
-      email: {
-        type: String,
-        required: true,
-        unique: true,
-      },
-    });
+const db = mongoose.connection;
 
-    const User = Mongodb.model("User", userSchema);
+db.once("open", () => {
+  const userSchema = new mongoose.Schema({
+    username: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+  });
 
-    module.exports = {
-      Post,
-      User,
-    };
+  const User = mongoose.model("User", userSchema);
 
-    console.log("MongoDB connected");
-  })
-  .catch((err) => console.log("MongoDB connection error: ", err));
+  module.exports = {
+    User,
+  };
+
+  // console.log("MongoDB connected");
+});
+
+db.on("error", (err) => {
+  console.log("MongoDB connection error: ", err);
+});

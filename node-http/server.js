@@ -1,7 +1,6 @@
 const express = require("express");
 // const session = require("express-session");
 // const cookieParser = require("cookie-parser");
-const { MongoClient } = require("mongodb");
 const mongoose = require("mongoose");
 
 const authRoutes = require("./routers/authRouter");
@@ -19,8 +18,19 @@ app.use(express.urlencoded({ extended: true }));
 //   })
 // );
 
-const client = new MongoClient("mongodb://0.0.0.0:27017/nodemongo");
-client.connect(),
-  then(() => console.log("MongoDB connected")).catch((err) =>
-    console.error("MongoDB connection error: ", err)
-  );
+mongoose
+  .connect("mongodb://0.0.0.0:27017/nodemongo", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("MongoDB connected");
+  })
+  .catch((err) => {
+    console.log("MongoDB connection error: ", err);
+  });
+
+app.use(authRoutes);
+app.listen(3000, () => {
+  console.log("Server is running on port 3000");
+});
