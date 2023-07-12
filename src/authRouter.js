@@ -39,3 +39,5 @@ router.post("/logout", (req, res) => {
 module.exports = router;
 
 // import Vue
+import Vue from "vue";
+import VueRouter from "vue-router";
