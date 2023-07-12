@@ -1,4 +1,8 @@
 import Vue from "vue";
+import App from "../src/component/App.vue";
+import router from "../src/authRouter";
+
 new Vue({
-  render,
-});
+  router,
+  render: (h) => h(App),
+}).$mount("#app");
