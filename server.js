@@ -6,12 +6,8 @@ const path = require("path");
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use((req, res, next) => {
-//   res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-// });
 
 mongoose
   .connect("mongodb://0.0.0.0:27017/nodemongo", {
@@ -25,7 +21,14 @@ mongoose
     console.log("MongoDB connection error: ", err);
   });
 
+app.use(express.static(path.join(__dirname, "public")));
+
 app.use("/", authRoutes);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
 });
