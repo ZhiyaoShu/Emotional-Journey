@@ -23,7 +23,7 @@ mongoose
   });
 
 app.use(
-  express.static(path.join(__dirname, "public", "index.html"), {
+  express.static(path.join(__dirname, "public"), {
     setHeaders: (res, filePath) => {
       if (filePath.endsWith(".css")) {
         res.setHeader("Content-Type", "text/css");
