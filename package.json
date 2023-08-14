@@ -22,7 +22,8 @@
     "mongodb": "^5.7.0",
     "mongoose": "^7.3.3",
     "pug": "^3.0.2",
-    "sass": "^1.63.6"
+    "sass": "^1.65.1",
+    "scss": "^0.2.4"
   },
   "devDependencies": {
     "node-sass": "^9.0.0",

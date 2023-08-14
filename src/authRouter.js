@@ -19,6 +19,7 @@ router.post("/signup", async (req, res) => {
   }
 });
 
+// Login Route
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
   try {
@@ -37,3 +38,8 @@ router.post("/logout", (req, res) => {
   res.redirect("/login");
 });
 module.exports = router;
+
+//Logout Route
+router.post("/logout",(req,res)=>{
+  res.redirect("/login")
+})
