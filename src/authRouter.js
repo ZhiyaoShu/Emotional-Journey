@@ -2,16 +2,17 @@ const express = require("express");
 const router = express.Router();
 const { User } = require("./model-user");
 
+// Signup Route
 router.post("/signup", async (req, res) => {
   const { username, password, email } = req.body;
 
   try {
     const user = new User({ username, password, email });
 
-    //save the user to the database
+    // Save the user to the database
     await user.save();
 
-    //redirect the user to the login page
+    // Redirect the user to the login page
     res.redirect("/login");
   } catch (error) {
     console.error(error);
@@ -28,18 +29,15 @@ router.post("/login", async (req, res) => {
       return res.status(401).send("Invalid username or password");
     }
     res.redirect("/");
-  } catch (Error) {
+  } catch (error) {
     console.error(error);
-    res.status(500).send("Error logging up");
+    res.status(500).send("Error logging in");
   }
 });
 
+// Logout Route
 router.post("/logout", (req, res) => {
   res.redirect("/login");
 });
-module.exports = router;
 
-//Logout Route
-router.post("/logout",(req,res)=>{
-  res.redirect("/login")
-})
+module.exports = router;

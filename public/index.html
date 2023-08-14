@@ -1,51 +1,62 @@
-<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Smart Home Web App</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-  </head>
-  <body>
-    <!-- <style>
-      header {
-        background-color: #333;
-        color: rgb(207, 58, 58);
-        padding: 20px;
-        align-content: center;
-      }
-    </style> -->
-    <div id="app">
-      <header>
-        <nav></nav>
-        <h1>TITLE</h1>
-      </header>
-      <main>
-        <section>
-          <h2>Research goal: Ubiquitous sensors of emotion</h2>
-          <p>PURPOSE</p>
-        </section>
-        <section>
-          <h2>How Smart Home Product Works</h2>
-          <p>Explain how the smart home product operates and its benefits.</p>
-        </section>
-        <section>
-          <h2>Feature Functions</h2>
-          <ul>
-            <li>Feature 1</li>
-            <li>Feature 2</li>
-            <li>Feature 3</li>
-            <!-- Add more features as needed -->
-          </ul>
-        </section>
-      </main>
-      <footer>
-        <p>&copy; 2023 Smart Home Web App. All rights reserved.</p>
-      </footer>
-    </div>
+<html>
 
-    <script src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script>
-    <script src="src/App.js"></script>
-  </body>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Arial&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet" />
+  <link href="style.css" rel="stylesheet" />
+  <title>Smart Home Web App</title>
+</head>
+
+<body>
+  <div id="app">
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-item">Home</div>
+        <div class="nav-item">About</div>
+        <div class="nav-item">Research</div>
+      </nav>
+      <h1 class="header-title">Smart Home Web App</h1>
+    </header>
+    <main>
+      <section class="research-section">
+        <h2 class="section-title">Research goal: Spatial sensors for emotions</h2>
+        <p class="section-text">Exploring the potential of spatial sensors in understanding emotions.</p>
+      </section>
+      <section class="product-section">
+        <h2 class="section-title">How Smart Home Product Works</h2>
+        <p class="section-text">Discover the innovative features of our smart home products.</p>
+      </section>
+      <section class="features-section">
+        <product-card title="Product I" image="v93_1119.png"></product-card>
+        <product-card title="Product II" image="v93_1138.png"></product-card>
+        <product-card title="Product III" image="v93_1145.png"></product-card>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer-text">&copy; 2023 - Company, Inc. All rights reserved. Address Zipcode</p>
+      <p class="footer-items">Item 1 | Item 2 | Item 3</p>
+    </footer>
+  </div>
+
+  <script src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script>
+  <script>
+    Vue.component('product-card', {
+      props: ['title', 'image'],
+      template: `
+        <div class="product-card">
+          <div class="product-image"></div>
+          <div class="product-details">
+            <div class="product-name">{{ title }}</div>
+          </div>
+        </div>
+      `
+    });
+
+    new Vue({
+      el: '#app'
+    });
+  </script>
+</body>
+
 </html>

@@ -1,0 +1,28 @@
+// theme.scss
+
+/* Color Theme */
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$background-color: #f8f9fa;
+
+/* Apply colors to specific elements */
+.header {
+  background-color: $primary-color;
+}
+
+.nav-item {
+  color: $secondary-color;
+}
+
+.section-title {
+  color: $primary-color;
+}
+
+.product-card {
+  background-color: $background-color;
+}
+
+.footer {
+  background-color: $secondary-color;
+  color: #fff;
+}

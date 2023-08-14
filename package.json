@@ -23,7 +23,8 @@
     "mongoose": "^7.3.3",
     "pug": "^3.0.2",
     "sass": "^1.65.1",
-    "scss": "^0.2.4"
+    "scss": "^0.2.4",
+    "vue": "^3.3.4"
   },
   "devDependencies": {
     "node-sass": "^9.0.0",

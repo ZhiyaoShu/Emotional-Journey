@@ -1,0 +1,39 @@
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: rgb(207, 58, 58);
+  padding: 20px;
+  align-content: center;
+}
+
+h1,
+h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+main {
+  padding: 20px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+button {
+  padding: 10px;
+}
