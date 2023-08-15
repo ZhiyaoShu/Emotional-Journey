@@ -1,61 +1,130 @@
-<!-- login.html -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  title>Smart Home Web App</title>
-  <link href="https://fonts.googleapis.com/css?family=Arial&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet" />
+  <title>Smart Sensors</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+
   <link href="style.css" rel="stylesheet" />
 </head>
 
 <body>
 
   <div id="app">
-    <header>
-      <header class="header">
-        <h1 class="header-title">Smart Sensors</h1>
-        <nav class="nav">
-          <a href="index.html">Home</a>
-          <a href="how-it-works.html" class="nav-item">How it works</a>
-          <a href="research.html" class="nav-item">Research</a>
-          <a href='login.html' class="nav-login">Log in</a>
-        </nav>
-      </header>
-
-      <h1>User Login/Signup</h1>
+    <header class="header">
+      <h1 class="header-title">Smart Sensors</h1>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="how-it-works.html" class="nav-item">How it works</a>
+        <a href="research.html" class="nav-item">Research</a>
+        <a href="#" class="nav-login">Login/Signup</a>
+      </nav>
     </header>
+
     <main>
-      <section>
-        <h2>Login</h2>
-        <form @submit="login">
+      <section class="login-form">
+        <h2>{{ formType }}</h2>
+        <form @submit="submitForm" class="login-form">
+          <label for="name" v-if="!showLoginForm">Name:</label>
+          <input type="text" id="name" v-model="signupForm.name" v-if="!showLoginForm" required />
           <label for="email">Email:</label>
-          <input type="email" id="email" v-model="loginForm.email" required />
+          <input type="email" id="email" v-model="showLoginForm ? loginForm.email : signupForm.email" required />
           <label for="password">Password:</label>
-          <input type="password" id="password" v-model="loginForm.password" required />
-          <button type="submit">Login</button>
-        </form>
-      </section>
-      <section>
-        <h2>Signup</h2>
-        <form @submit="signup">
-          <label for="name">Name:</label>
-          <input type="text" id="name" v-model="signupForm.name" required />
-          <label for="email">Email:</label>
-          <input type="email" id="email" v-model="signupForm.email" required />
-          <label for="password">Password:</label>
-          <input type="password" id="password" v-model="signupForm.password" required />
-          <button type="submit">Signup</button>
+          <input type="password" id="password" v-model="showLoginForm ? loginForm.password : signupForm.password"
+            required />
+          <button @click="toggleForm" class="signup">{{ showLoginForm ? 'Login' : 'Signup' }}</button>
+          <button type="submit">{{ showLoginForm ? 'Login' : 'Signup' }}</button>
         </form>
       </section>
     </main>
-    <footer>
-      <p>&copy; 2023 Smart Home Web App. All rights reserved.</p>
+
+    <footer class="footer">
+      <p class="footer-text">&copy; 2023 - Company, Inc. All rights reserved. Address Zipcode</p>
+      <p class="footer-items">Item 1 | Item 2 | Item 3</p>
     </footer>
   </div>
 
-  <script src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script>
-  <script type="text/javascript" src="/src/App.js"></script>
+
 </body>
+<script>
+  new Vue({
+    el: "#app",
+    data() {
+      return {
+        showLoginForm: true,
+        formType: "Login",
+        loginForm: {
+          email: "",
+          password: "",
+        },
+        signupForm: {
+          name: "",
+          email: "",
+          password: "",
+        },
+        // healthCondition: "Normal", // Replace with dynamic data from backend
+      };
+    },
+    methods: {
+      toggleForm() {
+        this.showLoginForm = !this.showLoginForm;
+        this.formType = this.showLoginForm ? "Login" : "Signup";
+      },
+      async submitForm(event) {
+        event.preventDefault();
+        if (this.showLoginForm) {
+          await this.login(event);
+        } else {
+          await this.signup(event);
+        }
+      },
+      async login(event) {
+        try {
+          const response = await fetch("/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(this.loginForm),
+          });
+          if (response.ok) {
+            // Redirect to the portal.html page
+            window.location.href = "userportal.html";
+          } else {
+            console.error("Login failed");
+          }
+        } catch (error) {
+          console.error(error);
+        }
+        this.loginForm.email = "";
+        this.loginForm.password = "";
+      },
+
+      async signup(event) {
+        event.preventDefault();
+        try {
+          const response = await fetch("/signup", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(this.signupForm),
+          });
+          if (response.ok) {
+            window.location.href = "userportal.html";
+          } else {
+            console.error("Signup failed");
+          }
+        } catch (error) {
+          console.error(error);
+        }
+        this.signupForm.name = "";
+        this.signupForm.email = "";
+        this.signupForm.password = "";
+      },
+    },
+  });
+
+</script>
 
 </html>

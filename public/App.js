@@ -1,23 +1,11 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-
-Vue.use(VueRouter);
-
-const routes = [
-  { path: "/", component: HowItWorks },
-  { path: "/about", component: AboutUs },
-  { path: "/research", component: Research },
-];
-
-const router = new VueRouter({
-  routes,
-});
+import Vue from "https://cdn.jsdelivr.net/npm/vue@2.6.14";
 
 new Vue({
   el: "#app",
-  router,
   data() {
     return {
+      showLoginForm: true,
+      formType: "Login",
       loginForm: {
         email: "",
         password: "",
@@ -27,12 +15,23 @@ new Vue({
         email: "",
         password: "",
       },
-      healthCondition: "Normal", // Replace with dynamic data from backend
+      // healthCondition: "Normal", // Replace with dynamic data from backend
     };
   },
   methods: {
-    async login(event) {
+    toggleForm() {
+      this.showLoginForm = !this.showLoginForm;
+      this.formType = this.showLoginForm ? "Login" : "Signup";
+    },
+    async submitForm(event) {
       event.preventDefault();
+      if (this.showLoginForm) {
+        await this.login(event);
+      } else {
+        await this.signup(event);
+      }
+    },
+    async login(event) {
       try {
         const response = await fetch("/login", {
           method: "POST",
@@ -42,7 +41,8 @@ new Vue({
           body: JSON.stringify(this.loginForm),
         });
         if (response.ok) {
-          this.$router.push("/");
+          // Redirect to the portal.html page
+          window.location.href = "userportal.html";
         } else {
           console.error("Login failed");
         }
@@ -52,6 +52,7 @@ new Vue({
       this.loginForm.email = "";
       this.loginForm.password = "";
     },
+
     async signup(event) {
       event.preventDefault();
       try {
@@ -63,7 +64,7 @@ new Vue({
           body: JSON.stringify(this.signupForm),
         });
         if (response.ok) {
-          this.$router.push("/");
+          window.location.href = "userportal.html";
         } else {
           console.error("Signup failed");
         }
