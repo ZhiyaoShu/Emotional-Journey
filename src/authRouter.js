@@ -28,7 +28,7 @@ router.post("/login", async (req, res) => {
     if (!user || !user.verifyPassword(password)) {
       return res.status(401).send("Invalid username or password");
     }
-    res.redirect("/");
+    res.redirect("/userportal.html");
   } catch (error) {
     console.error(error);
     res.status(500).send("Error logging in");
