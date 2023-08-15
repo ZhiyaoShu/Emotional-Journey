@@ -1,20 +1,16 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import Vue from "vue";
+import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
 
-import HowItWorks from './components/HowItWorks.vue'; // Replace with your component imports
-import AboutUs from './components/AboutUs.vue';
-import Research from './components/Research.vue';
-
 const routes = [
-  { path: '/', component: HowItWorks },
-  { path: '/about', component: AboutUs },
-  { path: '/research', component: Research }
+  { path: "/", component: HowItWorks },
+  { path: "/about", component: AboutUs },
+  { path: "/research", component: Research },
 ];
 
 const router = new VueRouter({
-  routes
+  routes,
 });
 
 new Vue({
@@ -38,17 +34,17 @@ new Vue({
     async login(event) {
       event.preventDefault();
       try {
-        const response = await fetch('/login', {
-          method: 'POST',
+        const response = await fetch("/login", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
           },
-          body: JSON.stringify(this.loginForm)
+          body: JSON.stringify(this.loginForm),
         });
         if (response.ok) {
-          this.$router.push('/');
+          this.$router.push("/");
         } else {
-          console.error('Login failed');
+          console.error("Login failed");
         }
       } catch (error) {
         console.error(error);
@@ -59,17 +55,17 @@ new Vue({
     async signup(event) {
       event.preventDefault();
       try {
-        const response = await fetch('/signup', {
-          method: 'POST',
+        const response = await fetch("/signup", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
           },
-          body: JSON.stringify(this.signupForm)
+          body: JSON.stringify(this.signupForm),
         });
         if (response.ok) {
-          this.$router.push('/');
+          this.$router.push("/");
         } else {
-          console.error('Signup failed');
+          console.error("Signup failed");
         }
       } catch (error) {
         console.error(error);
