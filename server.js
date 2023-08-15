@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 mongoose
-  .connect("mongodb://0.0.0.0:27017/nodemongo", {
+  .connect("mongodb://0.0.0.0:27017/smartdata", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -34,9 +34,21 @@ app.use(
 
 app.use("/", authRoutes);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public"));
-});
+// app.post("/signup", async (req, res) => {
+//   try {
+//     console.log(req.body);
+//     const newUser = new User({
+//       username: req.body.name,
+//       email: req.body.email,
+//       password: req.body.password,
+//     });
+//     await newUser.save();
+//     res.sendStatus(200);
+//   } catch (error) {
+//     console.error(error);
+//     res.sendStatus(500);
+//   }
+// });
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");

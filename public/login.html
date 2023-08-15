@@ -32,9 +32,9 @@
           <label for="password">Password:</label>
           <input type="password" id="password" v-model="showLoginForm ? loginForm.password : signupForm.password"
             required />
-          <button @click="toggleForm" class="signup">{{ showLoginForm ? 'Login' : 'Signup' }}</button>
           <button type="submit">{{ showLoginForm ? 'Login' : 'Signup' }}</button>
         </form>
+        <button @click="toggleForm" class="switch">{{ showLoginForm ? 'Switch to Signup' : 'Switch to Login' }}</button>
       </section>
     </main>
 
