@@ -1,0 +1,150 @@
+/* Reset some default styles */
+body,
+h1,
+h2,
+h3,
+p,
+a {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+/* Main container styles */
+.container {
+  width: 1416px;
+  height: 739px;
+  border: 0.5px $primary-color solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+/* Dashboard header styles */
+.dashboard-header {
+  width: 100%;
+  background: $tertiary-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+}
+
+.logo {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.menu {
+  display: flex;
+  gap: 36px;
+}
+
+.menu-item {
+  color: $secondary-color;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Dashboard content styles */
+.dashboard-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  padding: 0 24px;
+}
+
+/* Members section styles */
+.members-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: $secondary-color;
+}
+
+.add-member {
+  font-size: 20px;
+  font-weight: 700;
+  color: $primary-color;
+  cursor: pointer;
+}
+
+/* Member card styles */
+.member-card {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $secondary-color;
+  padding: 20px;
+  border-radius: 8px;
+  gap: 20px;
+}
+
+.member-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.member-name {
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $secondary-color;
+}
+
+.member-relation,
+.member-health,
+.member-device {
+  font-size: 16px;
+  font-weight: 700;
+  color: $secondary-color;
+}
+
+.member-details-btn {
+  width: 88px;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $secondary-color;
+  opacity: 0.87;
+  font-size: 16px;
+  font-weight: 700;
+  color: $text-color;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.member-avatar {
+  width: 121px;
+  height: 121px;
+  background: $tertiary-color;
+  border-radius: 9999px;
+  border: 0.5px$text-color solid;
+}
+
+/* Footer styles */
+.footer {
+  background: $tertiary-color;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 12px;
+  font-weight: 400;
+  color: black;
+}
