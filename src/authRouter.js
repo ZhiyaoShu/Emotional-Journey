@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { User } = require("./model-user");
+const bcrypt = require("bcrypt");
 
 // Signup Route
 router.post("/signup", async (req, res) => {
@@ -25,9 +26,9 @@ router.post("/signup", async (req, res) => {
 
 // Login Route
 router.post("/login", async (req, res) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
   try {
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ email });
     if (!user || !(await bcrypt.compare(password, user.password))) {
       return res.status(401).send("Invalid username or password");
     }

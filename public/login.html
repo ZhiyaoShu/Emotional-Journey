@@ -26,7 +26,7 @@
         <h2>{{ formType }}</h2>
         <form @submit="submitForm" class="login-form">
           <label for="name" v-if="!showLoginForm">Name:</label>
-          <input type="text" id="name" v-model="signupForm.name" v-if="!showLoginForm" required />
+          <input type="text" id="username" v-model="signupForm.username" v-if="!showLoginForm" required />
           <label for="email">Email:</label>
           <input type="email" id="email" v-model="showLoginForm ? loginForm.email : signupForm.email" required />
           <label for="password">Password:</label>
