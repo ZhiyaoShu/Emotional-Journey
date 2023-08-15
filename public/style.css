@@ -1,18 +1,287 @@
-/* Error: Undefined variable.
- *    ,
- * 24 |   background-color: $background-color;
- *    |                     ^^^^^^^^^^^^^^^^^
- *    '
- *   sass\theme.scss 24:21  @import
- *   sass\layout.scss 2:9   root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a    \2577 \a 24 \2502    background-color: $background-color;\d\a    \2502                      ^^^^^^^^^^^^^^^^^\a    \2575 \a   sass\\theme.scss 24:21  @import\a   sass\\layout.scss 2:9   root stylesheet";
+/* Color Theme */
+/* Apply colors to specific elements */
+.header {
+  background-color: #406185;
 }
+
+.nav-item {
+  color: #2d2f30;
+}
+
+.section-title {
+  color: #406185;
+}
+
+.product-card {
+  background-color: #d5d5d5;
+}
+
+.footer {
+  background-color: #2d2f30;
+  color: #fff;
+}
+
+.login-form {
+  width: 100%; /* Adjust as needed */
+  max-width: 730px;
+  padding: 20px;
+  background: #e1e1e1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.login-form h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.login-form label {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.login-form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  margin-top: 15px;
+}
+
+.login-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .login-form {
+    padding: 15px;
+  }
+  .login-form h2 {
+    font-size: 20px;
+  }
+  .login-form label {
+    font-size: 16px;
+  }
+  .login-form input {
+    font-size: 14px;
+  }
+  .login-form button {
+    font-size: 16px;
+  }
+}
+.dashboard .dashboard-header .logo {
+  font-size: 16px;
+  font-weight: 700;
+}
+.dashboard .dashboard-header .menu {
+  display: flex;
+  gap: 36px;
+}
+.dashboard .dashboard-header .menu .menu-item {
+  color: #2d2f30;
+  font-size: 14px;
+  font-weight: 700;
+}
+.dashboard .dashboard-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  padding: 0 24px;
+}
+.dashboard .dashboard-content .members-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.dashboard .dashboard-content .members-section .section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2d2f30;
+}
+.dashboard .dashboard-content .members-section .add-member {
+  font-size: 20px;
+  font-weight: 700;
+  color: #406185;
+  cursor: pointer;
+}
+.dashboard .dashboard-content .members-section .card {
+  font-family: "Arial", sans-serif;
+  background: #2d2f30;
+  width: 500px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 10px;
+  margin-bottom: 15px;
+  border-bottom: #406185 5px solid;
+}
+.dashboard .dashboard-content .members-section .card .member-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.dashboard .dashboard-content .members-section .card .member-info .member-name {
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #2d2f30;
+}
+.dashboard .dashboard-content .members-section .card .member-info .member-relation,
+.dashboard .dashboard-content .members-section .card .member-info .member-health,
+.dashboard .dashboard-content .members-section .card .member-info .member-device {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2d2f30;
+}
+.dashboard .dashboard-content .members-section .card .member-details-btn {
+  cursor: pointer;
+  background: #406185;
+  color: #2d2f30;
+  border: 0;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+.dashboard .dashboard-content .members-section .card .member-avatar {
+  width: 121px;
+  height: 121px;
+  background: #d5d5d5;
+  border-radius: 9999px;
+  border: 0.5px #b7b7b7 solid;
+}
+
+/* Reset and basic styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+  align-items: center;
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #406185;
+  color: #fff;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 10px;
+  width: 408px;
+  height: 70px;
+  justify-content: center;
+  align-items: center;
+  gap: 36px;
+  display: inline-flex;
+}
+
+.nav-item {
+  cursor: pointer;
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  font-family: Arial;
+  font-weight: 700;
+  word-wrap: break-word;
+}
+
+.nav-login {
+  cursor: pointer;
+  width: 88px;
+  height: 36px;
+  background: white;
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  display: inline-flex;
+}
+
+.header-title {
+  font-size: 24px;
+}
+
+/* Sections */
+.section-title {
+  width: 1440px;
+  height: 582px;
+  position: relative;
+}
+
+.Intro-text {
+  width: 448px;
+  height: 275px;
+  left: 93px;
+  top: 239px;
+  position: absolute;
+  opacity: 0.4;
+  background: black;
+}
+
+.section-text {
+  font-size: 16px;
+  color: #406185;
+}
+
+/* Product Cards */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px #2d2f30;
+}
+
+.product-image {
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.product-details {
+  text-align: center;
+}
+
+.product-name {
+  font-size: 20px;
+}
+
+/*# sourceMappingURL=style.css.map */

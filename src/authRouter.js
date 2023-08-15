@@ -43,4 +43,15 @@ router.post("/logout", (req, res) => {
   res.redirect("/login");
 });
 
+router.get("/user-data/:userID", async (req, res) => {
+  try {
+    const userID = req.params.userId;
+    const user = await User.findById(userId);
+    res.json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error retrieving users");
+  }
+});
+
 module.exports = router;
