@@ -62,7 +62,6 @@
           email: "",
           password: "",
         },
-        // healthCondition: "Normal", // Replace with dynamic data from backend
       };
     },
     methods: {
@@ -88,7 +87,6 @@
             body: JSON.stringify(this.loginForm),
           });
           if (response.ok) {
-            // Redirect to the portal.html page
             window.location.href = "userportal.html";
           } else {
             console.error("Login failed");
