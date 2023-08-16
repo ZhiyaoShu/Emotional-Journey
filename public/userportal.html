@@ -9,30 +9,32 @@
 
 <body>
 
+
+  <header class="header">
+    <h1 class="header-title">Smart Sensors</h1>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="how-it-works.html" class="nav-item">How it works</a>
+      <a href="research.html" class="nav-item">Research</a>
+      <a href="login.html" class="nav-login">Logout</a>
+    </nav>
+  </header>
+
   <div id="app">
-    <header class="header">
-      <h1 class="header-title">Smart Sensors</h1>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="how-it-works.html" class="nav-item">How it works</a>
-        <a href="research.html" class="nav-item">Research</a>
-        <a href="login.html" class="nav-login">Logout</a>
-      </nav>
-    </header>
 
     <div class="dashboard">
       <div class="dashboard-content">
         <div class="members-section">
           <div class="section-title">Dashboard > Members</div>
-          <div class="add-member"> + Add New Members</div>
+          <div class="add-member"> + Add New Members
+          </div>
         </div>
-        <MemberCard v-for="(user, index) in users" :key="index" :username="user.username" :image="user.avatar"
-          :relation="user.relation" :health="user.health" :device="user.device" />
       </div>
+      <MemberCard v-for="(user, index) in users" :key="index" :user="user" />
     </div>
-  </div>
 
-  <!-- <div class="Member 1">
+
+    <!-- <div class="Member 1">
     <div class="Member 1" avatar="https://randomuser.me/api/portraits/men/1.jpg">
       <div class="member-name">Member 1</div>
       <div class="member-relation">Relationship</div>
@@ -43,42 +45,42 @@
   </div> -->
 
 
-  <footer class="footer">
-    <p class="footer-text">&copy; 2023 - Company, Inc. All rights reserved. Address Zipcode</p>
-    <p class="footer-items">Item 1 | Item 2 | Item 3</p>
-  </footer>
+    <footer class="footer">
+      <p class="footer-text">&copy; 2023 - Company, Inc. All rights reserved. Address Zipcode</p>
+      <p class="footer-items">Item 1 | Item 2 | Item 3</p>
+    </footer>
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 <script>
   Vue.component('MemberCard', {
-    props: ['username', 'image', 'relation', 'health', 'device'],
+    props: ['user'],
     template: `
-    <div class="member-card">
-      <img :src="image" :alt="username" class="member-avatar" />
-      <div class="member-name">{{ username }}</div>
-      <div class="member-relation">{{ relation }}</div>
-      <div class="member-health">Health condition: {{ health }}</div>
-      <div class="member-device">Device condition: {{ device }}</div>
-      <div class="member-details-btn">Details</div>
-    </div>`
-
+        <div class="member-card">
+          <img :src="user.avatar" :alt="user.username" class="member-avatar" />
+          <div class="member-name">{{ user.username }}</div>
+          <div class="member-relation">{{ user.email }}</div>
+          <div class="member-details-btn">Details</div>
+        </div>`
   });
+  // <div class="member-health">Health condition: {{ user.health }}</div>
+  //       <div class="member-device">Device condition: {{ user.device }}</div>
 
   new Vue({
     el: '#app',
     data: {
       users: []
-    }, mounted() {
-      axios.get(`/user-data/
-_id`).then(response => {
-        this.users.push(response.data);
+    },
+    mounted() {
+      axios.get('/user-data').then(response => {
+        this.users = response.data;
       }).catch(error => {
         console.error(error)
       });
     }
-  }
-  );
+  });
 </script>
 
 </html>

@@ -126,49 +126,48 @@
   color: #406185;
   cursor: pointer;
 }
-.dashboard .dashboard-content .members-section .card {
-  font-family: "Arial", sans-serif;
-  background: #2d2f30;
-  width: 500px;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-gap: 10px;
-  margin-bottom: 15px;
-  border-bottom: #406185 5px solid;
-}
-.dashboard .dashboard-content .members-section .card .member-info {
-  flex: 1;
+.dashboard .dashboard-content .members-section .member-card {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.dashboard .dashboard-content .members-section .card .member-info .member-name {
-  font-size: 30px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #2d2f30;
-}
-.dashboard .dashboard-content .members-section .card .member-info .member-relation,
-.dashboard .dashboard-content .members-section .card .member-info .member-health,
-.dashboard .dashboard-content .members-section .card .member-info .member-device {
-  font-size: 16px;
-  font-weight: 700;
-  color: #2d2f30;
-}
-.dashboard .dashboard-content .members-section .card .member-details-btn {
-  cursor: pointer;
-  background: #406185;
-  color: #2d2f30;
-  border: 0;
+  align-items: center;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.dashboard .dashboard-content .members-section .card .member-avatar {
-  width: 121px;
-  height: 121px;
-  background: #d5d5d5;
-  border-radius: 9999px;
-  border: 0.5px #b7b7b7 solid;
+.dashboard .dashboard-content .members-section .member-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+.dashboard .dashboard-content .members-section .member-info {
+  flex: 1;
+}
+.dashboard .dashboard-content .members-section .member-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+.dashboard .dashboard-content .members-section .member-relation {
+  margin-top: 5px;
+  color: #666;
+}
+.dashboard .dashboard-content .members-section .member-condition {
+  margin-top: 10px;
+}
+.dashboard .dashboard-content .members-section .member-health,
+.dashboard .dashboard-content .members-section .member-device {
+  margin-bottom: 5px;
+}
+.dashboard .dashboard-content .members-section .member-details-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.dashboard .dashboard-content .members-section .member-details-btn:hover {
+  background-color: #0056b3;
 }
 
 /* Reset and basic styling */

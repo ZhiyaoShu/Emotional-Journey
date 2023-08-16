@@ -43,14 +43,13 @@ router.post("/logout", (req, res) => {
   res.redirect("/login");
 });
 
-router.get("/user-data/:userID", async (req, res) => {
+router.get("/user-data", async (req, res) => {
   try {
-    const userID = req.params.userId;
-    const user = await User.findById(userId);
-    res.json(user);
+    const users = await User.find();
+    res.json(users);
   } catch (error) {
     console.error(error);
-    res.status(500).send("Error retrieving users");
+    res.status(500).json("Error retrieving users");
   }
 });
 
