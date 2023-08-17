@@ -29,14 +29,21 @@ router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await User.findOne({ email });
-    if (!user || !(await bcrypt.compare(password, user.password))) {
-      console.log("Invalid username or password");
+    if (!user) {
+      console.log("User not found");
       return res.status(401).send("Invalid email or password");
     }
+
+    const passwordMatch = await bcrypt.compare(password, user.password);
+    if (!passwordMatch) {
+      console.log("Invalid password");
+      return res.status(401).send("Invalid email or password");
+    }
+
     console.log("Login successful");
     res.redirect("/userportal.html");
   } catch (error) {
-    console.error(error);
+    console.error("Error logging in:", error);
     res.status(500).send("Error logging in");
   }
 });
