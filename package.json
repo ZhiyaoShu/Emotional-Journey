@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ZhiyaoShu/SenseofBreathe.git"
+    "url": "git+https://github.com/ZhiyaoShu/Emotional-Journey.git"
   },
   "author": "zoey",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ZhiyaoShu/SenseofBreathe/issues"
+    "url": "https://github.com/ZhiyaoShu/Emotional-Journey/issues"
   },
-  "homepage": "https://github.com/ZhiyaoShu/SenseofBreathe#readme",
+  "homepage": "https://github.com/ZhiyaoShu/Emotional-Journey#readme",
   "dependencies": {
     "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
