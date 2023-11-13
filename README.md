@@ -1,4 +1,4 @@
-# Emotional-Journey
+# Health Journey
 
 **Objectives:**: This is a freelance full-stack project to develop a Smart Home Web App with a responsive interface. My task was to develop the interface of users' login/signup require and store users' information. 
 
